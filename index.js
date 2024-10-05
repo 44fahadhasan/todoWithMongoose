@@ -2,6 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const todoRoutes = require("./routes/todoRoutes");
+const userRoutes = require("./routes/userRoutes");
 require("dotenv").config();
 
 const uri = process.env.URI;
@@ -30,6 +31,9 @@ app.get("/", (req, res) => {
 
 // todo routes
 app.use("/todo", todoRoutes);
+
+// user routes
+app.use("/user", userRoutes);
 
 app.listen(port, () => {
   console.log(`Todo app listening on port ${port}`);
