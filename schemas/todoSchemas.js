@@ -20,4 +20,11 @@ const todoSchema = new mongoose.Schema({
   },
 });
 
+// instance methods
+todoSchema.methods = {
+  findActiveTodo: (query) => {
+    return mongoose.model("Todo").find(query);
+  },
+};
+
 module.exports = todoSchema;
