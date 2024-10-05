@@ -34,4 +34,11 @@ todoSchema.statics = {
   },
 };
 
+// query helper
+todoSchema.query = {
+  byWord: function (value) {
+    return this.find({ title: new RegExp(value, "i") });
+  },
+};
+
 module.exports = todoSchema;

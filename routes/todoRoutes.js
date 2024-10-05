@@ -31,6 +31,17 @@ todoRoutes.get("/title", async (req, res) => {
   }
 });
 
+// get title with any word (query helper)
+todoRoutes.get("/title-with-word", async (req, res) => {
+  try {
+    const result = await Todo.find().byWord("e");
+    res.status(200).send(result);
+  } catch (error) {
+    console.log({ error });
+    res.status(500).send(error);
+  }
+});
+
 // get all todo
 todoRoutes.get("/all", async (req, res) => {
   Todo.find({}, {}, {})
