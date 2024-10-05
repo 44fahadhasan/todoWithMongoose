@@ -27,4 +27,11 @@ todoSchema.methods = {
   },
 };
 
+// statics methods
+todoSchema.statics = {
+  findTitte: function (value) {
+    return this.find({ title: value });
+  },
+};
+
 module.exports = todoSchema;

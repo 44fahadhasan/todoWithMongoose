@@ -20,6 +20,17 @@ todoRoutes.get("/inactive", async (req, res) => {
   }
 });
 
+// get title (statics methods)
+todoRoutes.get("/title", async (req, res) => {
+  try {
+    const result = await Todo.findTitte("Web Devloper");
+    res.status(200).send(result);
+  } catch (error) {
+    console.log({ error });
+    res.status(500).send(error);
+  }
+});
+
 // get all todo
 todoRoutes.get("/all", async (req, res) => {
   Todo.find({}, {}, {})
